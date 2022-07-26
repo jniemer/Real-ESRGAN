@@ -17,14 +17,14 @@ datasets:
   train:
     name: DIV2K
     type: RealESRGANPairedDataset
-    dataroot_gt: datasets/DF2K
-    dataroot_lq: datasets/DF2K
-    meta_info: datasets/DF2K/meta_info/meta_info_DIV2K_sub_pair.txt
+    dataroot_gt: /content/datasets/faces/original
+    dataroot_lq: /content/datasets/faces/X4
+    #meta_info: datasets/DF2K/meta_info/meta_info_DIV2K_sub_pair.txt
     io_backend:
       type: disk
 
     gt_size: 256
-    use_hflip: True
+    use_hflip: False
     use_rot: False
 
     # data loader
@@ -35,13 +35,13 @@ datasets:
     prefetch_mode: ~
 
   # Uncomment these for validation
-  # val:
-  #   name: validation
-  #   type: PairedImageDataset
-  #   dataroot_gt: path_to_gt
-  #   dataroot_lq: path_to_lq
-  #   io_backend:
-  #     type: disk
+  val:
+    name: validation
+    type: PairedImageDataset
+    dataroot_gt: /content/datasets/faces_val/original
+    dataroot_lq: /content/datasets/faces_val/X4
+    io_backend:
+      type: disk
 
 # network structures
 network_g:
@@ -61,12 +61,12 @@ network_d:
 # path
 path:
   # use the pre-trained Real-ESRNet model
-  pretrain_network_g: experiments/pretrained_models/RealESRNet_x4plus.pth
-  param_key_g: params_ema
-  strict_load_g: true
-  pretrain_network_d: experiments/pretrained_models/RealESRGAN_x4plus_netD.pth
-  param_key_d: params
-  strict_load_d: true
+  #pretrain_network_g: experiments/pretrained_models/RealESRNet_x4plus.pth
+  #param_key_g: params_ema
+  #strict_load_g: true
+  #pretrain_network_d: experiments/pretrained_models/RealESRGAN_x4plus_netD.pth
+  #param_key_d: params
+  #strict_load_d: true
   resume_state: ~
 
 # training settings
